@@ -2,7 +2,6 @@
 
 Groups multiple `@ClassHook` types inside a struct, enum, or class and generates a single `activate()` entry point that chains all nested hook classes in declaration order.
 
---- begin-snippet ---
 ## Definition
 
 ```swift
@@ -51,4 +50,4 @@ AllHooks.activate()
 ```
 
 The hooks are activated in the order they appear inside the `@HookGroup` body.
---- end-snippet ---
+

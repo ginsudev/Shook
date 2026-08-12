@@ -2,7 +2,6 @@
 
 Adds a brand-new method to the hooked Objective-C class at runtime via `class_addMethod`. The function **must** be annotated with `@objc` — the compiler uses the `@objc` method's type encoding as the single source of truth.
 
---- begin-snippet ---
 ## Definition
 
 ```swift
@@ -36,4 +35,4 @@ if let m = class_getInstanceMethod(SBIconViewHook.self, sel_dodoSetupMask) {
 
 - If the target class (or any superclass) already responds to the selector, `class_addMethod` returns `NO` and the method is silently not added. Choose selectors that don't collide with UIKit/SpringBoard methods.
 - The method is added at runtime when `activate()` is called. It won't be available during `+load` or static initializers.
---- end-snippet ---
+

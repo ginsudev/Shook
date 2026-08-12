@@ -44,9 +44,9 @@ AllHooks.activate()
 
 ## Requirements
 
-- Theos build system (via `xcodeproj.mk`)
-- Xcode 26+ (Swift 6.3.3)
-- Cydia Substrate (`MSHookMessageEx`)
+- [Theos](https://theos.dev)
+- [Xcode](https://developer.apple.com/xcode/) 26+
+- [Cydia Substrate](http://www.cydiasubstrate.com) (bundled with Theos)
 - iOS 14+ deployment target
 
 ## Building

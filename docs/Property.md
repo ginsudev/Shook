@@ -2,7 +2,6 @@
 
 Adds an associated object property to the hooked instance. Generates a storage key and get/set accessors backed by `objc_getAssociatedObject` / `objc_setAssociatedObject`.
 
---- begin-snippet ---
 ## Definition
 
 ```swift
@@ -49,4 +48,4 @@ func hookViewDidLoad() {
 ```
 
 > **Warning:** Using `.OBJC_ASSOCIATION_ASSIGN` creates a dangling pointer if the stored object is deallocated — it does **not** behave like a Swift `weak` reference. For weak semantics, store a wrapper that holds a weak reference and retain the wrapper with `.OBJC_ASSOCIATION_RETAIN_NONATOMIC`.
---- end-snippet ---
+

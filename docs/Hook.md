@@ -2,7 +2,6 @@
 
 Marks a function inside a `@ClassHook` container as a method swizzle. The macro is a marker — the real code generation happens in `@ClassHook`, which scans for `@Hook`-annotated functions and generates `MSHookMessageEx` calls.
 
---- begin-snippet ---
 ## Definition
 
 ```swift
@@ -24,7 +23,7 @@ func hookLayoutSubviews() {
 - The function body replaces the original method implementation.
 - Call `orig.<methodName>(...)` to invoke the original implementation.
 - Access `target` to interact with the hooked instance.
-- The function name is arbitrary — the selector is what matters.
+- The function name can be anything, but the selector string is important as it gives the target method reference to Shook.
 
-> **Warning:** You must call `MSHookMessageEx` to swizzle the method. `@ClassHook` generates this automatically in `activate()`.
---- end-snippet ---
+> **Warning:** You must `import CydiaSubstrate` at the top of the file as Shook generates code that calls `MSHookMessageEx` to swizzle the method.
+

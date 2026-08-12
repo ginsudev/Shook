@@ -2,7 +2,6 @@
 
 Defines a Swift class as a hook container for an Objective-C target class. Generates all the boilerplate: the target reference, an `Orig` inner struct for calling original implementations, IMP storage, and an `activate()` entry point.
 
---- begin-snippet ---
 ## Definition
 
 ```swift
@@ -49,4 +48,4 @@ SBIconViewHook.activate()
 ```
 
 Or wrap multiple hooks with [`@HookGroup`](HookGroup.md).
---- end-snippet ---
+
