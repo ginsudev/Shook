@@ -1,0 +1,9 @@
+Package: com.ginsu.shook
+Name: Shook
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Swift macro-based ObjC method hooking framework
+Maintainer: Ginsu
+Author: Ginsu
+Section: Development
+Depends: firmware (>= 15.0)
