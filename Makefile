@@ -1,9 +1,6 @@
-# Shook framework — Theos xcodeproj.mk build
 ARCHS = arm64 arm64e
 TARGET = iphone:clang:latest:14.0
-
-.PHONY: build
-build: package
+PACKAGE_VERSION = 1.0.1
 
 include $(THEOS)/makefiles/common.mk
 
@@ -16,8 +13,6 @@ Shook_XCODEFLAGS = BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 Shook_XCODEFLAGS += DEPLOYMENT_LOCATION=YES
 Shook_XCODEFLAGS += INSTALL_PATH=/Library/Frameworks
 Shook_XCODEFLAGS += DSTROOT=$(THEOS_OBJ_DIR)/install_Shook
-#Shook_XCODEFLAGS += IPHONEOS_DEPLOYMENT_TARGET=14.0
-#Shook_XCODEFLAGS += SDKROOT=$(THEOS)/sdks/iPhoneOS16.5.sdk
 Shook_XCODEFLAGS += -derivedDataPath $(THEOS_OBJ_DIR)/DerivedData
 Shook_XCODEFLAGS += DWARF_DSYM_FOLDER_PATH=$(THEOS_OBJ_DIR)/dSYMs
 Shook_XCODEFLAGS += CONFIGURATION_BUILD_DIR=$(THEOS_OBJ_DIR)/
