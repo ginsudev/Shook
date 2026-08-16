@@ -45,7 +45,7 @@ AllHooks.activate()
 ## Requirements
 
 - [Theos](https://theos.dev)
-- [Xcode](https://developer.apple.com/xcode/) (any version with Swift 5.10+)
+- [Xcode](https://developer.apple.com/xcode/)
 - [Cydia Substrate](http://www.cydiasubstrate.com) (bundled with Theos)
 - iOS 14+ deployment target
 
@@ -67,7 +67,7 @@ Enable the module in your tweak's Makefile:
 MODULES = shook
 ```
 
-Then just `import Shook` in your Swift sources. No `-F` flags, no `-load-plugin-executable` — the module wires everything up when it detects Swift files.
+Then just `import Shook` in your Swift sources.
 
 ## Optional: NIC template
 
