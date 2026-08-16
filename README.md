@@ -45,28 +45,35 @@ AllHooks.activate()
 ## Requirements
 
 - [Theos](https://theos.dev)
-- [Xcode](https://developer.apple.com/xcode/) 26+
+- [Xcode](https://developer.apple.com/xcode/) (any version with Swift 5.10+)
 - [Cydia Substrate](http://www.cydiasubstrate.com) (bundled with Theos)
 - iOS 14+ deployment target
 
-## Building
+## Installation
+
+Shook is a Theos **module**. Clone it into your Theos module directory:
 
 ```bash
-make build    # builds framework + .deb, installs to $THEOS/lib/
+git clone https://github.com/ginsudev/Shook.git $THEOS/mod/shook
 ```
 
-The framework is **compile-time only** — no Shook runtime dependency on the device. Macros expand inline into plain Objective-C runtime calls.
+The framework is **compile-time only** — no Shook runtime dependency on the device. Macros expand inline into plain Objective-C runtime calls, and the macro plugin + device module are built automatically (and cached) on first use.
 
 ## Integration
 
-In your tweak's Makefile:
+Enable the module in your tweak's Makefile:
 
 ```makefile
-Dodo_SWIFTFLAGS = -F$(THEOS)/lib
-Dodo_SWIFTFLAGS += -load-plugin-executable $(THEOS)/lib/Shook.framework/Plugins/ShookMacros\#ShookMacros
+MODULES = shook
 ```
 
-The `import Shook` in your Swift sources resolves macro declarations at compile time. The macro plugin binary provides the code generation.
+…or globally, in `~/.theosrc`:
+
+```makefile
+export THEOS_AUTOLOAD_MODULES = shook
+```
+
+Then just `import Shook` in your Swift sources. No `-F` flags, no `-load-plugin-executable` — the module wires everything up when it detects Swift files.
 
 ## License
 

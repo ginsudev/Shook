@@ -70,3 +70,5 @@ DerivedData/
 .theos/
 packages/
 DerivedData/
+.theos_build/
+.theos_lock
