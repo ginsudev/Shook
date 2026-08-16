@@ -1,0 +1,3 @@
+name "iphone/tweak_shook"
+constrain "control" to package
+prompt FILTER "MobileSubstrate Bundle filter" "com.apple.springboard"

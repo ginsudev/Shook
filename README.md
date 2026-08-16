@@ -69,6 +69,15 @@ MODULES = shook
 
 Then just `import Shook` in your Swift sources. No `-F` flags, no `-load-plugin-executable` — the module wires everything up when it detects Swift files.
 
+## Optional: NIC template
+
+Shook ships a `nic.pl` template (`iphone/tweak_shook`) that scaffolds a working tweak — bare Makefile, `Package.swift` with a local Shook dependency (for Xcode), and the `Loader`/`C`/Swift module layout with an `SBIconView` hook example.
+
+```bash
+./install.sh                 # packs + installs the template into $THEOS/templates/
+$THEOS/bin/nic.pl            # then choose "iphone/tweak_shook"
+```
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

@@ -14,10 +14,6 @@ let package = Package(
             type: .dynamic,
             targets: ["Shook"]
         ),
-        .executable(
-            name: "ShookClient",
-            targets: ["ShookClient"]
-        ),
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "603.0.0-latest"),
@@ -36,9 +32,6 @@ let package = Package(
 
         // Library that exposes a macro as part of its API, which is used in client programs.
         .target(name: "Shook", dependencies: ["ShookMacros"]),
-
-        // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "ShookClient", dependencies: ["Shook"]),
 
         // A test target used to develop the macro implementation.
         .testTarget(
