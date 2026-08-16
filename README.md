@@ -67,12 +67,6 @@ Enable the module in your tweak's Makefile:
 MODULES = shook
 ```
 
-…or globally, in `~/.theosrc`:
-
-```makefile
-export THEOS_AUTOLOAD_MODULES = shook
-```
-
 Then just `import Shook` in your Swift sources. No `-F` flags, no `-load-plugin-executable` — the module wires everything up when it detects Swift files.
 
 ## License
