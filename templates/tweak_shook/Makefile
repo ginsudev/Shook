@@ -1,7 +1,6 @@
 TARGET := iphone:clang:latest:14.0
 @@KILL_RULE@@
 
-# Enable the Shook macro module. Must be set before common.mk.
 MODULES = shook
 
 include @@THEOS@@/makefiles/common.mk
