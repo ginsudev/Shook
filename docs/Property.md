@@ -26,7 +26,12 @@ private static var exampleKey: UInt8 = 0
 
 var example: String {
     get {
-        (objc_getAssociatedObject(target, &Self.exampleKey) as? String) ?? "Test"
+        if let existing = objc_getAssociatedObject(target, &Self.exampleKey) as? String {
+            return existing
+        }
+        let newValue: String = "Test"
+        objc_setAssociatedObject(target, &Self.exampleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return newValue
     }
     set {
         objc_setAssociatedObject(target, &Self.exampleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

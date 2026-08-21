@@ -58,7 +58,12 @@ public struct PropertyMacro: PeerMacro, AccessorMacro {
         if let initValue = binding.initializer?.value.description {
             getAccessor = """
             get {
-                return (objc_getAssociatedObject(target, &Self.\(identifier)Key) as? \(type)) ?? \(initValue)
+                if let existing = objc_getAssociatedObject(target, &Self.\(identifier)Key) as? \(type) {
+                    return existing
+                }
+                let newValue: \(type) = \(initValue)
+                objc_setAssociatedObject(target, &Self.\(identifier)Key, newValue, \(policy))
+                return newValue
             }
             """
         } else {
